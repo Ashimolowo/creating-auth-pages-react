@@ -12,6 +12,7 @@ const SignUP = () => {
         day: "",
         month: "",
         year: "",
+        gender:""
 
     })
 
@@ -20,6 +21,7 @@ const SignUP = () => {
       setFormDetails({ ...formDetails });
       console.log(formDetails);
     }
+    
     
     return ( 
         <div className="bg-gradient-to-b from-[#383838] to-[#bfbfc7] flex  gap-2 sm:justify-center  " style={{fontFamily: 'Roboto'}}>
@@ -132,12 +134,61 @@ const SignUP = () => {
                 
            
                 </div>
+
+                
             </div>
              
+
+            <div className="pl-3"x>
+                <h1>Gender</h1>
+                <div className="flex gap-3">
+                <div>
+                    <input 
+                    type="radio"
+                    name="gender"  
+                    id="male" 
+                    value="male"
+                    checked={formDetails.gender === "male"}
+                    onChange={ e => setFormDetails({...formDetails, gender: e.target.value  })}
+                    
+                    />
+                    <label className="text-xs">Male</label>
+                </div>
+
+                <div>
+                    <input 
+                    type="radio" 
+                    name="gender" 
+                    id="female"
+                    value="female"
+                    checked={formDetails.gender === "female"}
+                    onChange={ e => setFormDetails({...formDetails, gender: e.target.value  })} 
+                    />
+                    <label className="text-xs">Female</label>
+                </div>
+
+                <div>
+                    <input 
+                    type="radio" 
+                    name="gender"  
+                    id="prefer not to say" 
+                    value="other"
+                   checked={formDetails.gender === "other"}
+                    onChange={ e => setFormDetails({...formDetails, gender: e.target.value  })} 
+                    />
+                    <label className="text-xs">Prefer not to say</label>
+                </div>
+                </div>
+
+                <h1 className="text-xs text-justify">
+                    By clicking on sign-up you agree fully to the terms and conditions and
+                    privacy policy.
+                </h1>
+           </div>
+
              <div className="input-">
                  <button className="w-80 h-9 sm:h-10 sm:w-96 ring-transparent bg-purple-500 ring-2">SIGN UP</button>
              </div>
-            
  
              <div className="signup pb-8 sm:p-0">
                  <p className="text-xs">Have an account? <Link className="font-bold" to='/'>Log In</Link> </p>
